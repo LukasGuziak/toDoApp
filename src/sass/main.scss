@@ -1,0 +1,53 @@
+:root {
+	--yellow: #ffd505;
+	--dark-yellow: rgb(235, 199, 0);
+	--grey-yellow: #8e7f14;
+	--gold: rgb(235, 211, 88);
+	--black: rgb(10, 10, 10);
+	--white: rgb(255, 255, 255);
+	--medium-white: rgb(252, 251, 244);
+	--dark-white: rgb(213, 213, 213);
+	--light-grey: rgb(119, 118, 116);
+	--medium-grey: #373c41;
+	--dark-grey: rgb(34, 37, 39);
+	--darkest-grey: rgb(24, 24, 24);
+	--red: rgb(247, 63, 84);
+
+	--ff-primary: 'Roboto', sans-serif;
+	--ff-secondary: 'Montserrat', sans-serif;
+
+	--ff-body: var(--ff-secondary);
+	--ff-heading: var(--ff-primary);
+
+	--fw-regular: 400;
+	--fw-medium: 700;
+	--fw-bold: 900;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	font-family: var(--ff-);
+
+    background-color: var(--medium-grey);
+}
