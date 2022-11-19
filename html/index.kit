@@ -1,14 +1,147 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukasDev toDoApp</title>
-<link rel="stylesheet" href="./dist/css/main.min.css">
+    <!-- Font awsome -->
+    <script src="https://kit.fontawesome.com/bafefdbd87.js" crossorigin="anonymous"></script>
+    <!--  -->
+    <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
+
 <body>
-TEST
-<script src="./dist/js/app.min.js"></script>
+    <div class="todo-app">
+
+        <div class="header">
+            <h1 class="header__title"><span>Lukas Dev</span> ToDo App</h1>
+            <input type="text" class="header__input" placeholder="Enter your todo here...">
+            <button class="header__add-btn">Add</button>
+        </div>
+
+        <div class="todo-list">
+            <h3 class="todo-list__title">Todo list:</h3>
+            <p class="todo-list__info">No task on the list.</p>
+
+            <ul class="list-box">
+
+                <li class="todo completed" id="test1">
+
+                    <div class="main-box">
+
+                        <p class="todo__text">zrobić apkę todo</p>
+
+                        <div class="todo__tools">
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="complete"><i class="fas fa-check"></i></button>
+                            <button class="eddit">EDIT</button>
+                            <button class="delete"><i class="fas fa-times"></i></button>
+                        </div>
+
+                    </div>
+
+                    <ul class='sub-box'>
+
+                        <li class="todo-sub" id="sub1">podpunkt 1.1
+                            <div class="todo-sub__tools">
+                                <button class="complete"><i class="fas fa-check"></i></button>
+                                <button class="eddit">EDIT</button>
+                                <button class="delete"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+
+                        <li class="todo-sub" id="sub2">podpunkt 1.2
+                            <div class="todo-sub__tools">
+                                <button class="complete"><i class="fas fa-check"></i></button>
+                                <button class="eddit">EDIT</button>
+                                <button class="delete"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="todo" id="test2">
+
+                    <div class="main-box">
+
+                        <p class="todo__text">zrobić apkę todo</p>
+
+                        <div class="todo__tools">
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="complete"><i class="fas fa-check"></i></button>
+                            <button class="eddit">EDIT</button>
+                            <button class="delete"><i class="fas fa-times"></i></button>
+                        </div>
+
+                    </div>
+                    <ul class='sub-box'>
+
+                        <li class="todo-sub" id="sub2">podpunkt 2.1
+                            <div class="todo-sub__tools">
+                                <button class="complete"><i class="fas fa-check"></i></button>
+                                <button class="eddit">EDIT</button>
+                                <button class="delete"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                </li>
+
+                <li class="todo" id="test1">
+
+                    <div class="main-box">
+
+                        <p class="todo__text ">zrobić apkę todo</p>
+
+                        <div class="todo__tools">
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="complete"><i class="fas fa-check"></i></button>
+                            <button class="eddit">EDIT</button>
+                            <button class="delete"><i class="fas fa-times"></i></button>
+                        </div>
+
+                    </div>
+
+                    <ul class='sub-box'>
+
+                        <li class="todo-sub" id="sub1">podpunkt 1.1
+                            <div class="todo-sub__tools">
+                                <button class="complete"><i class="fas fa-check"></i></button>
+                                <button class="eddit">EDIT</button>
+                                <button class="delete"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+
+                        <li class="todo-sub" id="sub2">podpunkt 1.2
+                            <div class="todo-sub__tools">
+                                <button class="complete"><i class="fas fa-check"></i></button>
+                                <button class="eddit">EDIT</button>
+                                <button class="delete"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="popup">
+        <h3 class="popup__title">Edytuj zadanie</h3>
+        <div class="popup-body">
+            <p class="popup-info"></p>
+            <input class="popup-input" type="text" placeholder="Wprowadź nową treść">
+            <button class="popup-btn accept">Zatwierdź</button>
+            <button class="popup-btn cancel">Anuluj</button>
+        </div>
+    </div>
+
+    <script src="./dist/js/app.min.js"></script>
 </body>
+
 </html>

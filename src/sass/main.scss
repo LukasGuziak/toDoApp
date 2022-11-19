@@ -12,6 +12,8 @@
 	--dark-grey: rgb(34, 37, 39);
 	--darkest-grey: rgb(24, 24, 24);
 	--red: rgb(247, 63, 84);
+	--blue: rgb(63, 112, 247);
+	--green: rgb(63, 247, 140);
 
 	--ff-primary: 'Roboto', sans-serif;
 	--ff-secondary: 'Montserrat', sans-serif;
@@ -44,10 +46,191 @@ html {
 }
 
 body {
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction:column;
+	// position: relative;
 	font-size: 1.6rem;
 	line-height: 1.5;
-	font-family: var(--ff-);
+	font-family: var(--ff-body);
 
-    background-color: var(--medium-grey);
+	// background-color: var(--dark-white);
+	background-image: linear-gradient(
+		45deg,
+		rgb(228, 96, 79) 0%,
+		rgb(220, 223, 87) 100%
+	);
+}
+
+.todo-app {
+	margin: 2em;
+	width: 90%;
+	max-width: 1000px;
+	text-align: center;
+	background-color: var(--dark-grey);
+	box-shadow: 2px 2px 5px black;
+	border-radius: 15px;
+	overflow: hidden;
+
+	.header {
+		padding: 2em;
+		background-image: linear-gradient(
+			340deg,
+			var(--medium-grey) 0%,
+			var(--dark-grey) 100%
+		);
+
+		&__title {
+			color: var(--yellow);
+			text-transform: uppercase;
+			padding-bottom: 0.5em;
+			span {
+				font-size: 1.6rem;
+			}
+		}
+		&__input {
+			width: 80%;
+			padding: 0.5em 1em;
+			border-radius: 5px;
+			// border: none;
+		}
+		&__add-btn {
+			padding: 0.5em 1em;
+			margin-left: 0.5em;
+			border-radius: 5px;
+			width: 15%;
+			background-color: var(--medium-grey);
+			color: var(--grey-yellow);
+			font-weight: 700;
+			font-size: 1.4rem;
+			box-shadow: 1px 1px 4px black;
+			text-transform: uppercase;
+			transition: color 0s, transform 0s;
+			cursor: pointer;
+			&:hover {
+				color: var(--dark-yellow);
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	.todo-list {
+		&__title {
+			color: var(--yellow);
+			font-size: 2.4rem;
+		}
+		&__info {
+			color: var(--gold);
+		}
+
+		.list-box {
+			padding: 1em 0;
+
+			.todo {
+				// background-color: rgba(204, 12, 12, 0.3);
+				// padding: 0.3em 1em;
+				margin: 10px;
+				// border: 2px solid black;
+				overflow: hidden;
+				border-radius: 10px;
+				.main-box {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					background-color: var(--medium-grey);
+					padding: 0em 1em;
+				}
+				&__text {
+					color: var(--dark-white);
+					text-transform: uppercase;
+					font-weight: 600;
+				}
+				&__tools {
+					// background-color: blue;
+					display: inline-block;
+					button {
+						padding: 0.5em;
+						// border: 1px solid;
+						border-radius: 5px;
+						background-color: transparent;
+						cursor: pointer;
+						&:hover {
+							background-color: var(--light-grey);
+						}
+					}
+					.eddit {
+						color: var(--blue);
+						font-weight: 800;
+					}
+					.complete {
+						color: var(--green);
+					}
+					.delete {
+						color: var(--red);
+					}
+					.add {
+						color: var(--dark-white);
+					}
+				}
+
+				.sub-box {
+					// display: none;
+					color: whitesmoke;
+
+					background-color: var(--medium-grey);
+					.todo-sub {
+						display: flex;
+						justify-content: space-between;
+						padding: 0em 1em;
+
+						&__tools {
+							display: inline-block;
+							button {
+								padding: 0.5em;
+								// border: 1px solid;
+								border-radius: 5px;
+								background-color: transparent;
+								cursor: pointer;
+								&:hover {
+									background-color: var(--light-grey);
+								}
+							}
+
+							.eddit {
+								color: var(--blue);
+								font-weight: 800;
+							}
+							.complete {
+								color: var(--green);
+							}
+							.delete {
+								color: var(--red);
+							}
+						}
+					}
+				}
+			}
+			.completed {
+				text-decoration: line-through;
+				color: var(--light-grey);
+				.main-box {
+					.todo__text {
+						color: var(--light-grey);
+					}
+				}
+				.sub-box {
+					color: var(--light-grey);
+				}
+			}
+		}
+	}
+}
+
+.popup{
+	padding: 2em;
+	width: 70%;
+	background-color: var(--medium-grey);
+	border-radius: 15px;
+
 }
