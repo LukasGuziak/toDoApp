@@ -16,16 +16,39 @@
     <div class="todo-app">
 
         <div class="header">
-            <h1 class="header__title"><span>Lukas Dev</span> ToDo App</h1>
+
+            <h1 class="header__title"><img class="header__title-logo" src="./dist/img/logo.png" alt=""> ToDo App</h1>
             <input type="text" class="header__input" placeholder="Enter your todo here...">
             <button class="header__add-btn">Add</button>
+            <div class="header__category">
+
+                <input type="radio" id="work" name="category" value="work">
+                <label for="work">work</label>
+
+                <input type="radio" id="hobby" name="category" value="hobby">
+                <label for="work">hobby</label>
+
+                <input type="radio" id="duties" name="category" value="duties">
+                <label for="work">duties</label>
+
+                <input type="radio" id="other" name="category" value="other">
+                <label for="other">work</label>
+            </div>
         </div>
 
         <div class="todo-list">
             <h3 class="todo-list__title">Todo list:</h3>
             <p class="todo-list__info">No task on the list.</p>
 
-            <ul class="list-box">
+            <ul class="list-box" id="work">
+
+                <div class="list-box__category">
+                    <h2 class="list-box__category-name">work</h2>
+                    <button class="list-box__category-btn expand"><i class="fas fa-plus"></i></button>
+                    <button class="list-box__category-btn collapse collapse-active"><i
+                            class="fas fa-minus"></i></button>
+
+                </div>
 
                 <li class="todo completed" id="test1">
 
@@ -127,17 +150,77 @@
 
 
             </ul>
+
+            <ul class="list-box">
+
+                <div class="list-box__category">
+                    <h2 class="list-box__category-name">hobby</h2>
+                    <button class="list-box__category-btn expand"><i class="fas fa-plus"></i></button>
+                    <button class="list-box__category-btn collapse collapse-active"><i
+                            class="fas fa-minus"></i></button>
+
+                </div>
+
+                <li class="todo" id="test2">
+
+                    <div class="main-box">
+
+                        <p class="todo__text">zrobić apkę todo</p>
+
+                        <div class="todo__tools">
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="complete"><i class="fas fa-check"></i></button>
+                            <button class="eddit">EDIT</button>
+                            <button class="delete"><i class="fas fa-times"></i></button>
+                        </div>
+
+                    </div>
+                    <ul class='sub-box'>
+
+                        <li class="todo-sub" id="sub2">podpunkt 2.1
+                            <div class="todo-sub__tools">
+                                <button class="complete"><i class="fas fa-check"></i></button>
+                                <button class="eddit">EDIT</button>
+                                <button class="delete"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="list-box">
+                <div class="list-box__category">
+                    <h2 class="list-box__category-name">duties</h2>
+                    <button class="list-box__category-btn expand expand-active"><i class="fas fa-plus"></i></button>
+                    <button class="list-box__category-btn collapse"><i class="fas fa-minus"></i></button>
+
+                </div>
+            </ul>
+
+            <ul class="list-box">
+
+                <div class="list-box__category">
+                    <h2 class="list-box__category-name">other</h2>
+                    <button class="list-box__category-btn expand expand-active"><i class="fas fa-plus"></i></button>
+                    <button class="list-box__category-btn collapse"><i class="fas fa-minus"></i></button>
+
+                </div>
+            </ul>
+
+
+
         </div>
 
     </div>
 
     <div class="popup">
         <h3 class="popup__title">Edytuj zadanie</h3>
-        <div class="popup-body">
-            <p class="popup-info"></p>
-            <input class="popup-input" type="text" placeholder="Wprowadź nową treść">
-            <button class="popup-btn accept">Zatwierdź</button>
-            <button class="popup-btn cancel">Anuluj</button>
+        <div class="popup__body">
+            <p class="popup__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <input class="popup__input" type="text" placeholder="Wprowadź nową treść">
+            <button class="popup__btn accept">Zatwierdź</button>
+            <button class="popup__btn cancel">Anuluj</button>
         </div>
     </div>
 

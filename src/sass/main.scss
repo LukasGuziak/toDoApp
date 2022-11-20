@@ -47,9 +47,10 @@ html {
 
 body {
 	display: flex;
-	justify-content: center;
+	// justify-content: center;
 	align-items: center;
-	flex-direction:column;
+	flex-direction: column;
+	min-height: 100vh;
 	// position: relative;
 	font-size: 1.6rem;
 	line-height: 1.5;
@@ -85,9 +86,14 @@ body {
 			color: var(--yellow);
 			text-transform: uppercase;
 			padding-bottom: 0.5em;
-			span {
-				font-size: 1.6rem;
-			}
+			padding-left: 1em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&__title-logo {
+			width: 100px;
+			padding-right: 0.5em;
 		}
 		&__input {
 			width: 80%;
@@ -101,16 +107,24 @@ body {
 			border-radius: 5px;
 			width: 15%;
 			background-color: var(--medium-grey);
-			color: var(--grey-yellow);
+			color: var(--blue);
 			font-weight: 700;
 			font-size: 1.4rem;
 			box-shadow: 1px 1px 4px black;
 			text-transform: uppercase;
-			transition: color 0s, transform 0s;
+			transition: transform 0s, opacity 0s;
 			cursor: pointer;
+			opacity: 0.5;
 			&:hover {
-				color: var(--dark-yellow);
+				opacity: 1;
 				transform: scale(1.05);
+			}
+		}
+		&__category {
+			margin-top: 1em;
+			color: #8e7f14;
+			label {
+				padding-right: 2em;
 			}
 		}
 	}
@@ -119,18 +133,60 @@ body {
 		&__title {
 			color: var(--yellow);
 			font-size: 2.4rem;
+			// padding: 0.5em 0 0 0;
 		}
 		&__info {
-			color: var(--gold);
+			color: var(--blue);
 		}
 
 		.list-box {
-			padding: 1em 0;
+			border-top: 1px solid var(--medium-grey);
+
+			&__category {
+				// background-color: aqua;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				margin: 10px;
+
+				&-name {
+					color: var(--yellow);
+					text-transform: uppercase;
+					font-size: 1.6rem;
+				}
+				&-btn {
+					font-size: 2rem;
+					padding: 0.3em 0.5em;
+					margin-left: 0.5em;
+					// border: 1px solid;
+					border-radius: 5px;
+					background-color: transparent;
+					cursor: pointer;
+					transition: background-color 0.3s;
+					display: none;
+					&:hover {
+						background-color: var(--light-grey);
+					}
+				}
+				.expand {
+					color: var(--dark-white);
+					&-active {
+						display: block;
+					}
+				}
+				.collapse {
+					color: var(--red);
+					&-active {
+						display: block;
+					}
+				}
+			}
 
 			.todo {
 				// background-color: rgba(204, 12, 12, 0.3);
 				// padding: 0.3em 1em;
-				margin: 10px;
+				margin: 0px 10px 10px;
 				// border: 2px solid black;
 				overflow: hidden;
 				border-radius: 10px;
@@ -155,6 +211,7 @@ body {
 						border-radius: 5px;
 						background-color: transparent;
 						cursor: pointer;
+						transition: background-color 0.3s;
 						&:hover {
 							background-color: var(--light-grey);
 						}
@@ -192,6 +249,7 @@ body {
 								border-radius: 5px;
 								background-color: transparent;
 								cursor: pointer;
+								transition: background-color 0.3s;
 								&:hover {
 									background-color: var(--light-grey);
 								}
@@ -227,10 +285,57 @@ body {
 	}
 }
 
-.popup{
-	padding: 2em;
+.popup {
+	padding: 1em 0.5em;
+	max-width: 800px;
 	width: 70%;
 	background-color: var(--medium-grey);
 	border-radius: 15px;
 
+	text-align: center;
+	box-shadow: 2px 2px 5px black;
+
+	&__title {
+		font-size: 1.8rem;
+		color: var(--yellow);
+		// margin-bottom: 1em;
+	}
+	&__info {
+		color: var(--blue);
+		margin-bottom: 1em;
+	}
+	&__input {
+		// color: var(--blue);
+		width: 95%;
+		padding: 0.5em 1em;
+		border-radius: 5px;
+		margin-bottom: 1.5em;
+	}
+	&__btn {
+		padding: 0.5em 1em;
+		text-transform: uppercase;
+		margin: 0 1em;
+		border-radius: 5px;
+		cursor: pointer;
+		background-color: transparent;
+		font-weight: 700;
+		font-size: 1.4rem;
+		box-shadow: 1px 1px 4px black;
+		text-transform: uppercase;
+		transition: color 0s, opacity 0s;
+		opacity: 0.5;
+		&:hover {
+			transform: scale(1.05);
+			opacity: 1;
+		}
+	}
+
+	&__body {
+		.cancel {
+			color: var(--red);
+		}
+		.accept {
+			color: var(--green);
+		}
+	}
 }
