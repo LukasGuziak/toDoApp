@@ -21,7 +21,6 @@
             <input type="text" class="header__input" placeholder="Enter your todo here...">
             <button class="header__add-btn">Add</button>
             <div class="header__category">
-
                 <input type="radio" id="work" name="category" value="work">
                 <label for="work">work</label>
 
@@ -40,21 +39,20 @@
             <h3 class="todo-list__title">Todo list:</h3>
             <p class="todo-list__info">No task on the list.</p>
 
-            <ul class="list-box" id="work">
+            <ul class="list-box" id="work-list">
 
                 <div class="list-box__category">
                     <h2 class="list-box__category-name">work</h2>
                     <button class="list-box__category-btn expand"><i class="fas fa-plus"></i></button>
                     <button class="list-box__category-btn collapse collapse-active"><i
                             class="fas fa-minus"></i></button>
-
                 </div>
 
-                <li class="todo completed" id="test1">
+                <li class="todo" id="work-1">
 
                     <div class="main-box">
 
-                        <p class="todo__text">zrobić apkę todo</p>
+                        <p class="todo__text">todo numer 1 test</p>
 
                         <div class="todo__tools">
                             <button class="add"><i class="fas fa-plus"></i></button>
@@ -67,23 +65,9 @@
 
                     <ul class='sub-box'>
 
-                        <li class="todo-sub" id="sub1">podpunkt 1.1
-                            <div class="todo-sub__tools">
-                                <button class="complete"><i class="fas fa-check"></i></button>
-                                <button class="eddit">EDIT</button>
-                                <button class="delete"><i class="fas fa-times"></i></button>
-                            </div>
-                        </li>
-
-                        <li class="todo-sub" id="sub2">podpunkt 1.2
-                            <div class="todo-sub__tools">
-                                <button class="complete"><i class="fas fa-check"></i></button>
-                                <button class="eddit">EDIT</button>
-                                <button class="delete"><i class="fas fa-times"></i></button>
-                            </div>
-                        </li>
                     </ul>
                 </li>
+
 
                 <li class="todo" id="test2">
 
@@ -224,7 +208,7 @@
         </div>
     </div>
 
-    <script src="./dist/js/app.min.js"></script>
+    <script src="../src/js/app.js"></script>
 </body>
 
 </html>

@@ -121,10 +121,15 @@ body {
 			}
 		}
 		&__category {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
 			margin-top: 1em;
 			color: #8e7f14;
+			text-transform: uppercase;
+
 			label {
-				padding-right: 2em;
+				padding: 0 2em 0 0.5rem;
 			}
 		}
 	}
@@ -287,6 +292,7 @@ body {
 
 .popup {
 	padding: 1em 0.5em;
+	margin-bottom: 2em;
 	max-width: 800px;
 	width: 70%;
 	background-color: var(--medium-grey);
