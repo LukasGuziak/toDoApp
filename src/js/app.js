@@ -51,7 +51,7 @@ const createTodoTools = () => {
     completeBtn.classList.add('complete');
     completeBtn.innerHTML = '<i class="fas fa-check"></i>';
     const editBtn = document.createElement('button');
-    editBtn.classList.add('eddit');
+    editBtn.classList.add('edit');
     editBtn.innerHTML = 'EDIT';
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete');
@@ -78,13 +78,15 @@ const checkClick = (e) => {
         if (e.target.closest('button').classList.contains('add')) {
             console.log('add');
         }
-        if (e.target.closest('button').classList.contains('complete')) {
+        else if (e.target.closest('button').classList.contains('complete')) {
             console.log('COMPLETE !!!');
+            e.target
+                .closest('li').classList.toggle('completed');
         }
-        if (e.target.closest('button').classList.contains('eddit')) {
+        else if (e.target.closest('button').classList.contains('edit')) {
             console.log('edit !!!');
         }
-        if (e.target.closest('button').classList.contains('delete')) {
+        else if (e.target.closest('button').classList.contains('delete')) {
             console.log('delete');
         }
     }
@@ -98,7 +100,7 @@ workList.addEventListener('click', checkClick);
 //     <div class="todo__tools">
 //         <button class="add"><i class="fas fa-plus"></i></button>
 //         <button class="complete"><i class="fas fa-check"></i></button>
-//         <button class="eddit">EDIT</button>
+//         <button class="edit">EDIT</button>
 //         <button class="delete"><i class="fas fa-times"></i></button>
 //     </div>
 // </div>
@@ -106,7 +108,7 @@ workList.addEventListener('click', checkClick);
 //     <li class="todo-sub" id="sub2">podpunkt 2.1
 //         <div class="todo-sub__tools">
 //             <button class="complete"><i class="fas fa-check"></i></button>
-//             <button class="eddit">EDIT</button>
+//             <button class="edit">EDIT</button>
 //             <button class="delete"><i class="fas fa-times"></i></button>
 //         </div>
 //     </li>

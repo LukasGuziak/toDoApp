@@ -207,6 +207,7 @@ body {
 					text-transform: uppercase;
 					font-weight: 600;
 				}
+
 				&__tools {
 					// background-color: blue;
 					display: inline-block;
@@ -221,7 +222,7 @@ body {
 							background-color: var(--light-grey);
 						}
 					}
-					.eddit {
+					.edit {
 						color: var(--blue);
 						font-weight: 800;
 					}
@@ -234,6 +235,7 @@ body {
 					.add {
 						color: var(--dark-white);
 					}
+
 				}
 
 				.sub-box {

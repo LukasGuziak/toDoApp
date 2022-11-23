@@ -97,19 +97,17 @@ const enterCheck = (e: KeyboardEvent): void => {
 	}
 };
 const checkClick = (e) => {
-
-
-	if (e.target.tagName==='BUTTON' || e.target.tagName==='I') {
+	if (e.target.tagName === 'BUTTON' || e.target.tagName === 'I') {
 		if (e.target.closest('button').classList.contains('add')) {
 			console.log('add');
-		}
-		if (e.target.closest('button').classList.contains('complete')) {
+		} else if (e.target.closest('button').classList.contains('complete')) {
 			console.log('COMPLETE !!!');
-		}
-		if (e.target.closest('button').classList.contains('edit')) {
+			e.target
+				.closest('li').classList.toggle('completed');
+
+		} else if (e.target.closest('button').classList.contains('edit')) {
 			console.log('edit !!!');
-		}
-		if (e.target.closest('button').classList.contains('delete')) {
+		} else if (e.target.closest('button').classList.contains('delete')) {
 			console.log('delete');
 		}
 	}
