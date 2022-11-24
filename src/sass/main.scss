@@ -68,6 +68,7 @@ body {
 	margin: 2em;
 	width: 90%;
 	max-width: 1000px;
+	min-width: 500px;
 	text-align: center;
 	background-color: var(--dark-grey);
 	box-shadow: 2px 2px 5px black;
@@ -293,9 +294,13 @@ body {
 }
 
 .popup {
+	position:fixed;
+	top:70vh;
+	display: none;
 	padding: 1em 0.5em;
 	margin-bottom: 2em;
 	max-width: 800px;
+	min-width: 400px;
 	width: 70%;
 	background-color: var(--medium-grey);
 	border-radius: 15px;

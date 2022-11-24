@@ -2,6 +2,11 @@ const inputTodo = document.querySelector('.header__input');
 const addTodoBtn = document.querySelector('.header__add-btn');
 const todoListInfo = document.querySelector('.todo-lists__info');
 const workList = document.querySelector('#work-list');
+const hobbyList = document.querySelector('#hobby-list');
+const dutiesList = document.querySelector('#duties-list');
+const otherList = document.querySelector('#other-list');
+const allLists = document.querySelector('.todo-lists');
+const allTodoItem = document.getElementsByTagName('li');
 const popup = document.querySelector('.popup');
 const popupInput = document.querySelector('.popup__input');
 const popupAcceptBtn = document.querySelector('.accept');
@@ -10,9 +15,7 @@ const popupInfo = document.querySelector('.popup__info');
 let idNumber = 0;
 let newTodo;
 let mainBox;
-console.log(workList);
-console.log(todoListInfo.innerHTML);
-console.log('test2');
+let editedTodo;
 const addNewTodo = () => {
     let inputTodoValue = inputTodo.value;
     if (inputTodoValue !== '') {
@@ -62,11 +65,6 @@ const createTodoTools = () => {
     todoTools.appendChild(deleteBtn);
     console.log(todoTools);
 };
-function getDirection(e) {
-    let directionCode = e.keyCode;
-    let directionCodeStr = e.key;
-    // code going on here
-}
 const enterCheck = (e) => {
     let pressKey = e.key;
     if (pressKey === 'Enter') {
@@ -80,20 +78,55 @@ const checkClick = (e) => {
         }
         else if (e.target.closest('button').classList.contains('complete')) {
             console.log('COMPLETE !!!');
-            e.target
-                .closest('li').classList.toggle('completed');
+            e.target.closest('li').classList.toggle('completed');
         }
         else if (e.target.closest('button').classList.contains('edit')) {
-            console.log('edit !!!');
+            editTodo(e);
         }
         else if (e.target.closest('button').classList.contains('delete')) {
             console.log('delete');
+            deleteTodo(e);
         }
     }
 };
+const deleteTodo = (e) => {
+    const todoTooDelete = e.target.closest('li');
+    todoTooDelete.remove();
+    if (allTodoItem.length === 0) {
+        todoListInfo.innerText = 'Brak zadań na liście';
+    }
+};
+const editTodo = (e) => {
+    const idEditedTodo = e.target.closest('li').id;
+    editedTodo = document.getElementById(idEditedTodo);
+    console.log(editedTodo);
+    console.log();
+    popupInput.value = editedTodo.querySelector('p').textContent;
+    popup.style.display = 'block';
+};
+const changeTodo = () => {
+    if (popupInput.value !== '') {
+        editedTodo.querySelector('p').textContent = popupInput.value;
+        popupInfo.innerText = '';
+        popup.style.display = 'none';
+        // popupInfo.value= '';
+    }
+    else {
+        popupInfo.innerText = 'Wpisz treść zadania !';
+    }
+};
+const closePopup = () => {
+    popup.style.display = 'none';
+    popupInfo.innerText = '';
+    // console.log('zamkniecie popup')
+};
 addTodoBtn.addEventListener('click', addNewTodo);
 inputTodo.addEventListener('keyup', enterCheck);
-workList.addEventListener('click', checkClick);
+// workList.addEventListener('click', checkClick);
+allLists.addEventListener('click', checkClick);
+popupAcceptBtn.addEventListener('click', changeTodo);
+allLists.addEventListener('click', checkClick);
+popupCancelBtn.addEventListener('click', closePopup);
 // <li class="todo" id="test2">
 // <div class="main-box">
 //     <p class="todo__text">zrobić apkę todo</p>
