@@ -20,6 +20,16 @@ const popupAcceptBtn: HTMLButtonElement = document.querySelector('.accept');
 const popupCancelBtn: HTMLButtonElement = document.querySelector('.cancel');
 const popupInfo: HTMLParagraphElement = document.querySelector('.popup__info');
 
+const subPopup: HTMLDivElement = document.querySelector('.sub-popup');
+const subPopupInput: HTMLInputElement =
+	document.querySelector('.sub-popup__input');
+const subPopupAcceptBtn: HTMLButtonElement =
+	document.querySelector('.sub-accept');
+const subPopupCancelBtn: HTMLButtonElement =
+	document.querySelector('.sub-cancel');
+const subPopupInfo: HTMLParagraphElement =
+	document.querySelector('.sub-popup__info');
+
 let idNumber: number = 0;
 let newTodo: HTMLLIElement;
 let mainBox: HTMLDivElement;
@@ -88,6 +98,30 @@ const createTodoTools = () => {
 	console.log(todoTools);
 };
 
+const createSubTools = () => {
+	const todoTools = document.createElement('div');
+	todoTools.classList.add('todo__tools');
+	newTodo.appendChild(todoTools);
+
+	const completeBtn = document.createElement('button');
+	completeBtn.classList.add('complete');
+	completeBtn.innerHTML = '<i class="fas fa-check"></i>';
+
+	const editBtn = document.createElement('button');
+	editBtn.classList.add('edit');
+	editBtn.innerHTML = 'EDIT';
+
+	const deleteBtn = document.createElement('button');
+	deleteBtn.classList.add('delete');
+	deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+
+	todoTools.appendChild(completeBtn);
+	todoTools.appendChild(editBtn);
+	todoTools.appendChild(deleteBtn);
+
+	// console.log(todoTools);
+};
+
 const enterCheck = (e: KeyboardEvent): void => {
 	let pressKey: string = e.key;
 	if (pressKey === 'Enter') {
@@ -95,9 +129,11 @@ const enterCheck = (e: KeyboardEvent): void => {
 	}
 };
 const checkClick = (e) => {
+	console.log('Check klick !');
 	if (e.target.tagName === 'BUTTON' || e.target.tagName === 'I') {
 		if (e.target.closest('button').classList.contains('add')) {
 			console.log('add');
+			createSubTodo(e);
 		} else if (e.target.closest('button').classList.contains('complete')) {
 			console.log('COMPLETE !!!');
 			e.target.closest('li').classList.toggle('completed');
@@ -106,6 +142,20 @@ const checkClick = (e) => {
 		} else if (e.target.closest('button').classList.contains('delete')) {
 			console.log('delete');
 			deleteTodo(e);
+		} else if (e.target.closest('button').classList.contains('collapse')) {
+			console.log('collapse');
+			e.target.closest('button').classList.toggle('collapse-active');
+			e.target
+				.closest('button')
+				.previousElementSibling.classList.toggle('expand-active');
+			e.target.closest('div').nextElementSibling.style.display = 'none';
+		} else if (e.target.closest('button').classList.contains('expand')) {
+			console.log('expand');
+			e.target.closest('button').classList.toggle('expand-active');
+			e.target
+				.closest('button')
+				.nextElementSibling.classList.toggle('collapse-active');
+			e.target.closest('div').nextElementSibling.style.display = 'block';
 		}
 	}
 };
@@ -123,11 +173,51 @@ const editTodo = (e) => {
 	editedTodo = document.getElementById(idEditedTodo);
 	console.log(editedTodo);
 
-	console.log();
-
 	popupInput.value = editedTodo.querySelector('p').textContent;
 
 	popup.style.display = 'block';
+};
+
+const createSubTodo = (e) => {
+	subPopup.style.display = 'block';
+
+	// console.log(e.target.closest('li').lastElementChild);
+	let whereAddSubTodo = e.target.closest('li').lastElementChild.id;
+	// console.log(whereAddSubTodo);
+	console.log(whereAddSubTodo);
+
+	subPopupAcceptBtn.addEventListener('click', () => {
+		if (subPopupInput.value !== '') {
+			newTodo = document.createElement('li');
+			newTodo.classList.add('todo-sub');
+			newTodo.setAttribute('id', `todo-sub-${idNumber}`);
+
+			const todoText = document.createElement('p');
+			todoText.classList.add('todo-sub__text');
+			todoText.innerText = subPopupInput.value;
+			newTodo.appendChild(todoText);
+			createSubTools();
+
+			subPopupInfo.innerText = '';
+			subPopupInput.value = '';
+
+			subPopup.style.display = 'none';
+
+			let test = document.querySelector(`#${whereAddSubTodo}`);
+			console.log(test);
+			test.appendChild(newTodo);
+			console.log(newTodo);
+			return;
+
+		} else {
+			subPopupInfo.innerText = 'Wpisz treść zadania !';
+		}
+
+		return
+	});
+
+	// console.log(newTodo);
+	// e.target.closest('li').lastElementChild.appendChild(newTodo);
 };
 
 const changeTodo = () => {
@@ -145,16 +235,24 @@ const changeTodo = () => {
 const closePopup = () => {
 	popup.style.display = 'none';
 	popupInfo.innerText = '';
-// console.log('zamkniecie popup')
-}
+	// console.log('zamkniecie popup')
+};
+const closeSubPopup = () => {
+	subPopup.style.display = 'none';
+	subPopupInfo.innerText = '';
+	// console.log('zamkniecie popup')
+};
 
-addTodoBtn.addEventListener('click', addNewTodo);
-inputTodo.addEventListener('keyup', enterCheck);
-// workList.addEventListener('click', checkClick);
-allLists.addEventListener('click', checkClick);
-popupAcceptBtn.addEventListener('click', changeTodo);
-allLists.addEventListener('click', checkClick);
-popupCancelBtn.addEventListener('click', closePopup);
+const preperAllListener = () => {
+	addTodoBtn.addEventListener('click', addNewTodo);
+	inputTodo.addEventListener('keyup', enterCheck);
+	// workList.addEventListener('click', checkClick);
+	allLists.addEventListener('click', checkClick);
+	popupAcceptBtn.addEventListener('click', changeTodo);
+	popupCancelBtn.addEventListener('click', closePopup);
+	subPopupCancelBtn.addEventListener('click', closeSubPopup);
+};
+document.addEventListener('DOMContentLoaded', preperAllListener);
 
 // <li class="todo" id="test2">
 

@@ -41,13 +41,13 @@
             <p class="todo-lists__info">No task on the list.</p>
 
             <!-- work-list -->
+            <div class="list-category">
+                <h2 class="list-category-name">work</h2>
+                <button class="list-category-btn expand"><i class="fas fa-plus"></i></button>
+                <button class="list-category-btn collapse collapse-active"><i class="fas fa-minus"></i></button>
+            </div>
+
             <ul class="list-box" id="work-list">
-                <div class="list-box__category">
-                    <h2 class="list-box__category-name">work</h2>
-                    <button class="list-box__category-btn expand"><i class="fas fa-plus"></i></button>
-                    <button class="list-box__category-btn collapse collapse-active"><i
-                            class="fas fa-minus"></i></button>
-                </div>
 
                 <!-- work-list-todo -->
                 <li class="todo" id="work-1">
@@ -65,7 +65,7 @@
 
                     </div>
 
-                    <ul class='sub-box'>
+                    <ul class='sub-box' id="sub-box-1">
 
                     </ul>
                 </li>
@@ -85,10 +85,10 @@
                         </div>
 
                     </div>
-                    <ul class='sub-box'>
+                    <ul class='sub-box' id="sub-box-2">
 
                         <li class="todo-sub" id="sub-1">
-                            <p class="todo-sub__tools">podpunkt 2.1</p>
+                            <p class="todo-sub__text">podpunkt 2.1</p>
                             <div class="todo-sub__tools">
                                 <button class="complete"><i class="fas fa-check"></i></button>
                                 <button class="edit">EDIT</button>
@@ -115,7 +115,7 @@
 
                     </div>
 
-                    <ul class='sub-box'>
+                    <ul class='sub-box' id="sub-box-3">
 
                         <li class="todo-sub" id="sub-2">
 
@@ -144,15 +144,15 @@
             </ul>
 
             <!-- hobby-list -->
+            <div class="list-category">
+                <h2 class="list-category-name">hobby</h2>
+                <button class="list-category-btn expand"><i class="fas fa-plus"></i></button>
+                <button class="list-category-btn collapse collapse-active"><i class="fas fa-minus"></i></button>
+
+            </div>
+
             <ul class="list-box" id="hobby-list">
 
-                <div class="list-box__category">
-                    <h2 class="list-box__category-name">hobby</h2>
-                    <button class="list-box__category-btn expand"><i class="fas fa-plus"></i></button>
-                    <button class="list-box__category-btn collapse collapse-active"><i
-                            class="fas fa-minus"></i></button>
-
-                </div>
 
                 <li class="todo" id="hobby-1">
 
@@ -168,7 +168,7 @@
                         </div>
 
                     </div>
-                    <ul class='sub-box'>
+                    <ul class='sub-box' id="sub-box-4">
 
                         <li class="todo-sub" id="sub-4">
                             <p class="todo-sub__tools">podpunkt 2.1</p>
@@ -184,24 +184,26 @@
             </ul>
 
             <!-- duties-list -->
-            <ul class="list-box" id="duties-list">
-                <div class="list-box__category">
-                    <h2 class="list-box__category-name">duties</h2>
-                    <button class="list-box__category-btn expand expand-active"><i class="fas fa-plus"></i></button>
-                    <button class="list-box__category-btn collapse"><i class="fas fa-minus"></i></button>
+            <div class="list-category">
+                <h2 class="list-category-name">duties</h2>
+                <button class="list-category-btn expand expand-active"><i class="fas fa-plus"></i></button>
+                <button class="list-category-btn collapse"><i class="fas fa-minus"></i></button>
 
-                </div>
+            </div>
+
+            <ul class="list-box" id="duties-list">
             </ul>
 
             <!-- other-list -->
+            <div class="list-category">
+                <h2 class="list-category-name">other</h2>
+                <button class="list-category-btn expand expand-active"><i class="fas fa-plus"></i></button>
+                <button class="list-category-btn collapse"><i class="fas fa-minus"></i></button>
+
+            </div>
+
             <ul class="list-box" id="other-list">
 
-                <div class="list-box__category">
-                    <h2 class="list-box__category-name">other</h2>
-                    <button class="list-box__category-btn expand expand-active"><i class="fas fa-plus"></i></button>
-                    <button class="list-box__category-btn collapse"><i class="fas fa-minus"></i></button>
-
-                </div>
             </ul>
 
 
@@ -217,6 +219,16 @@
             <input class="popup__input" type="text" placeholder="Wprowadź nową treść">
             <button class="popup__btn accept">Zatwierdź</button>
             <button class="popup__btn cancel">Anuluj</button>
+        </div>
+    </div>
+
+    <div class="sub-popup">
+        <h3 class="sub-popup__title">Dodaj podpunkt do zadania</h3>
+        <div class="sub-popup__body">
+            <p class="sub-popup__info">Wpisz treść zadania</p>
+            <input class="sub-popup__input" type="text" placeholder="Wprowadź treść zadania">
+            <button class="sub-popup__btn sub-accept">Zatwierdź</button>
+            <button class="sub-popup__btn sub-cancel">Anuluj</button>
         </div>
     </div>
 
